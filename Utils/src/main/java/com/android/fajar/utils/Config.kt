@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase
 import androidx.annotation.IdRes
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
-import com.j256.ormlite.support.ConnectionSource
+//import com.j256.ormlite.support.ConnectionSource
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -20,7 +20,6 @@ abstract class Config {
 
     abstract fun onUpgradeDatabase(
         var1: SQLiteDatabase?,
-        var2: ConnectionSource?,
         var3: Int,
         var4: Int
     )

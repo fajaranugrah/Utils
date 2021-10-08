@@ -28,7 +28,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
-import com.j256.ormlite.android.apptools.OpenHelperManager;
+//import com.j256.ormlite.android.apptools.OpenHelperManager;
 
 import java.lang.reflect.Type;
 import java.text.DecimalFormat;
@@ -50,7 +50,7 @@ public class HelperJav {
     private static Context b;
     private static Config c;
     private static boolean d;
-    public static DatabaseHelperJav dbHelper;
+    //public static DatabaseHelperJav dbHelper;
     private static Toast e;
     public static final String MAIN_FRAGMENT_TAG = "main";
 
@@ -91,7 +91,7 @@ public class HelperJav {
         }
     }
 
-    public static final DatabaseHelperJav getHelper(Context var0) {
+    /*public static final DatabaseHelperJav getHelper(Context var0) {
         checkPermission();
         if (dbHelper == null) {
             dbHelper = new DatabaseHelperJav(var0);
@@ -105,7 +105,7 @@ public class HelperJav {
         OpenHelperManager.releaseHelper();
         dbHelper.close();
         dbHelper = null;
-    }
+    }*/
 
     public static Gson getGson() {
         checkPermission();
@@ -512,6 +512,6 @@ public class HelperJav {
         b = null;
         c = null;
         d = false;
-        dbHelper = null;
+        //dbHelper = null;
     }
 }

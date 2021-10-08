@@ -20,7 +20,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.bumptech.glide.Glide
 import com.google.gson.*
-import com.j256.ormlite.android.apptools.OpenHelperManager
+//import com.j256.ormlite.android.apptools.OpenHelperManager
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -54,7 +54,7 @@ open class Helper() {
         private var b: Context? = null
         private var c: Config? = null
         private var d = false
-        var dbHelper: DatabaseHelper? = null
+        //var dbHelper: DatabaseHelper? = null
         private var e: Toast? = null
         const val MAIN_FRAGMENT_TAG = "main"
         fun initialize(var0: Context?) {
@@ -88,7 +88,7 @@ open class Helper() {
                 c = var0
             }
 
-        fun getHelper(var0: Context?): DatabaseHelper? {
+        /*fun getHelper(var0: Context?): DatabaseHelper? {
             checkPermission()
             if (dbHelper == null) {
                 dbHelper = DatabaseHelper(var0)
@@ -101,7 +101,7 @@ open class Helper() {
             OpenHelperManager.releaseHelper()
             dbHelper!!.close()
             dbHelper = null
-        }
+        }*/
 
         val gson: Gson
             get() {
@@ -497,7 +497,7 @@ open class Helper() {
             b = null
             c = null
             d = false
-            dbHelper = null
+            //dbHelper = null
         }
     }
 }
