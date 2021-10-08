@@ -50,7 +50,7 @@ public class HelperJav {
     private static Context b;
     private static Config c;
     private static boolean d;
-    public static DatabaseHelper dbHelper;
+    public static DatabaseHelperJav dbHelper;
     private static Toast e;
     public static final String MAIN_FRAGMENT_TAG = "main";
 
@@ -91,10 +91,10 @@ public class HelperJav {
         }
     }
 
-    public static final DatabaseHelper getHelper(Context var0) {
+    public static final DatabaseHelperJav getHelper(Context var0) {
         checkPermission();
         if (dbHelper == null) {
-            dbHelper = new DatabaseHelper(var0);
+            dbHelper = new DatabaseHelperJav(var0);
         }
 
         return dbHelper;

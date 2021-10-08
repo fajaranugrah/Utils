@@ -13,11 +13,11 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
+public class DatabaseHelperJav extends OrmLiteSqliteOpenHelper {
     public static Map<String, Dao> daoMap = new HashMap();
     public static Map<String, Dao> daoStringMap = new HashMap();
 
-    public DatabaseHelper(Context var1) {
+    public DatabaseHelperJav(Context var1) {
         super(var1, Helper.getConfig().getDatabaseName(), (SQLiteDatabase.CursorFactory)null, Helper.getConfig().getDatabaseVersion());
     }
 
