@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Text Size Dimen -->
+    <dimen name="text.size.h1.dimen">@dimen/_96ssp</dimen>
+    <dimen name="text.size.h2.dimen">@dimen/_60ssp</dimen>
+    <dimen name="text.size.h3.dimen">@dimen/_48ssp</dimen>
+    <dimen name="text.size.h4.dimen">@dimen/_34ssp</dimen>
+    <dimen name="text.size.h5.1.dimen">@dimen/_28ssp</dimen>
+    <dimen name="text.size.h5.dimen">@dimen/_24ssp</dimen>
+    <dimen name="text.size.h6.dimen">@dimen/_20ssp</dimen>
+    <dimen name="text.size.b1.3.dimen">@dimen/_19ssp</dimen>
+    <dimen name="text.size.b1.2.dimen">@dimen/_18ssp</dimen>
+    <dimen name="text.size.b1.1.dimen">@dimen/_17ssp</dimen>
+    <dimen name="text.size.b1.dimen">@dimen/_16ssp</dimen>
+    <dimen name="text.size.b2.1.dimen">@dimen/_15ssp</dimen>
+    <dimen name="text.size.b2.dimen">@dimen/_14ssp</dimen>
+    <dimen name="text.size.b2.0.dimen">@dimen/_13ssp</dimen>
+    <dimen name="text.size.default.dimen">@dimen/_12ssp</dimen>
+    <dimen name="text.size.small.2.dimen">@dimen/_11ssp</dimen>
+    <dimen name="text.size.small.1.dimen">@dimen/_10ssp</dimen>
+    <dimen name="text.size.small.dimen">@dimen/_9ssp</dimen>
+
+    <!-- Screen Size Dimen -->
+    <dimen name="screen.size.70.dimen">@dimen/_70sdp</dimen>
+    <dimen name="screen.size.65.dimen">@dimen/_65sdp</dimen>
+    <dimen name="screen.size.55.dimen">@dimen/_55sdp</dimen>
+    <dimen name="screen.size.50.dimen">@dimen/_50sdp</dimen>
+    <dimen name="screen.size.48.dimen">@dimen/_48sdp</dimen>
+    <dimen name="screen.size.30.dimen">@dimen/_30sdp</dimen>
+    <dimen name="screen.size.25.dimen">@dimen/_25sdp</dimen>
+    <dimen name="screen.size.20.dimen">@dimen/_20sdp</dimen>
+    <dimen name="screen.size.18.dimen">@dimen/_18sdp</dimen>
+    <dimen name="screen.size.16.dimen">@dimen/_16sdp</dimen>
+</resources>
