@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="RatioImageView"><attr format="float" name="ratio"/><attr format="enum" name="measuredBased"><enum name="width" value="0"/><enum name="height" value="1"/></attr></declare-styleable>
+
     <!-- Text Size Dimen -->
     <dimen name="text.size.h1.dimen">@dimen/_96ssp</dimen>
     <dimen name="text.size.h2.dimen">@dimen/_60ssp</dimen>

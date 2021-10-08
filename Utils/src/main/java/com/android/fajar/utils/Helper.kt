@@ -164,7 +164,7 @@ open class Helper() {
                 return var0.create()
             }
 
-        fun <T> getService(var0: Context?, var1: Class<T>?): T {
+        fun <T> getService(var0: Context?, var1: Class<T>): T {
             val var2 = config!!.getOkHttpClient(var0)
             val var3 = Retrofit.Builder().baseUrl(config!!.serverIpAddress).client(var2)
             try {
