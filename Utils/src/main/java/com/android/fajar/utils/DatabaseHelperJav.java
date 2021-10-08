@@ -67,16 +67,6 @@ public class DatabaseHelperJav extends OrmLiteSqliteOpenHelper {
         }
     }
 
-    public <T extends Serializable> Dao<T, Integer> getIDaoCreateOrUpdate(Class<T> var1) throws SQLException {
-        HelperJav.checkPermission();
-        if (daoMap.get(var1.getSimpleName()) != null) {
-            return (Dao)daoMap.get(var1.getSimpleName()).createOrUpdate(var1);
-        } else {
-            daoMap.put(var1.getSimpleName(), this.getDao(var1));
-            return (Dao)daoMap.get(var1.getSimpleName()).createOrUpdate(var1);
-        }
-    }
-
     public <T extends Serializable> Dao<T, String> getSDao(Class<T> var1) throws SQLException {
         HelperJav.checkPermission();
         if (daoStringMap.get(var1.getSimpleName()) != null) {
@@ -84,16 +74,6 @@ public class DatabaseHelperJav extends OrmLiteSqliteOpenHelper {
         } else {
             daoStringMap.put(var1.getSimpleName(), this.getDao(var1));
             return (Dao)daoStringMap.get(var1.getSimpleName());
-        }
-    }
-
-    public <T extends Serializable> Dao<T, String> getSDaoCreateOrUpdate(Class<T> var1) throws SQLException {
-        HelperJav.checkPermission();
-        if (daoStringMap.get(var1.getSimpleName()) != null) {
-            return (Dao)daoStringMap.get(var1.getSimpleName()).createOrUpdate(var1);
-        } else {
-            daoStringMap.put(var1.getSimpleName(), this.getDao(var1));
-            return (Dao)daoStringMap.get(var1.getSimpleName()).createOrUpdate(var1);
         }
     }
 

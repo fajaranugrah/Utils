@@ -62,7 +62,7 @@ dependencies {
 
     //Ormlite
     implementation("com.j256.ormlite:ormlite-core:5.6")
-    implementation("com.j256.ormlite:ormlite-android:5.6")
+    implementation("com.j256.ormlite:ormlite-android:5.5")
 
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
