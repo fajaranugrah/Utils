@@ -11,15 +11,15 @@ import java.util.HashMap
 
 class DatabaseHelper(var1: Context?) : OrmLiteSqliteOpenHelper(
     var1,
-    Helper.config?.databaseName,
+    Helper.getConfig().databaseName,
     null as SQLiteDatabase.CursorFactory?,
-    Helper.config?.databaseVersion!!
+    Helper.getConfig().databaseVersion
 ) {
     override fun onCreate(var1: SQLiteDatabase, var2: ConnectionSource) {
-        val var3 = Helper.config?.listModelForDatabase
+        val var3 = Helper.getConfig().listModelForDatabase
         val var4 = var3?.size
         for (var5 in 0 until var4!!) {
-            val var6 = var3?.get(var5)
+            val var6 = var3.get(var5)
             try {
                 TableUtils.createTableIfNotExists(var2, var6)
             } catch (var8: SQLException) {
@@ -29,11 +29,11 @@ class DatabaseHelper(var1: Context?) : OrmLiteSqliteOpenHelper(
     }
 
     override fun onUpgrade(var1: SQLiteDatabase, var2: ConnectionSource, var3: Int, var4: Int) {
-        Helper.config?.onUpgradeDatabase(var1, var2, var3, var4)
+        Helper.getConfig().onUpgradeDatabase(var1, var2, var3, var4)
     }
 
     fun clearDatabase() {
-        val var1 = Helper.config?.listModelForDatabase
+        val var1 = Helper.getConfig().listModelForDatabase
         val var2 = var1?.size
         for (var3 in 0 until var2!!) {
             val var4 = var1[var3]
@@ -69,7 +69,7 @@ class DatabaseHelper(var1: Context?) : OrmLiteSqliteOpenHelper(
 
     override fun close() {
         super.close()
-        val var1 = Helper.config?.listModelForDatabase
+        val var1 = Helper.getConfig().listModelForDatabase
         val var2 = var1?.size
         for (var3 in 0 until var2!!) {
             val var4 = var1[var3]

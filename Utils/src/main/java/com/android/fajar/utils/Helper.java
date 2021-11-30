@@ -1,17 +1,22 @@
 package com.android.fajar.utils;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Point;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Display;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
@@ -28,7 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
-//import com.j256.ormlite.android.apptools.OpenHelperManager;
+import com.j256.ormlite.android.apptools.OpenHelperManager;
 
 import java.lang.reflect.Type;
 import java.text.DecimalFormat;
@@ -45,20 +50,36 @@ import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class HelperJav {
-    private static final String[] a;
+/**
+ * Created by
+ * Fajar Anugrah Ramadhan License
+ * ===============================================
+ *
+ * Copyright (C).
+ * All right reserved
+ *
+ * Name      : Fajar Anugrah Ramadhan
+ * E-mail    : fajarconan@gmail.com
+ * Github    : https://github.com/fajaranugrah
+ * LinkedIn  : linkedin.com/in/fajar-anugrah
+ *
+ */
+
+public class Helper {
+    private static String[] a = CustomConfig.INSTANCE.getPACKAGE_NAMES();
     private static Context b;
     private static Config c;
     private static boolean d;
-    //public static DatabaseHelperJav dbHelper;
+    public static DatabaseHelper dbHelper;
     private static Toast e;
     public static final String MAIN_FRAGMENT_TAG = "main";
 
-    public HelperJav() {
+    public Helper() {
     }
 
-    public static void initialize(Context var0) {
+    public static void initialize(Context var0, String[] PACKAGE) {
         b = var0;
+        a = PACKAGE;
         String[] var1 = a;
         int var2 = var1.length;
 
@@ -91,10 +112,10 @@ public class HelperJav {
         }
     }
 
-    /*public static final DatabaseHelperJav getHelper(Context var0) {
+    public static final DatabaseHelper getHelper(Context var0) {
         checkPermission();
         if (dbHelper == null) {
-            dbHelper = new DatabaseHelperJav(var0);
+            dbHelper = new DatabaseHelper(var0);
         }
 
         return dbHelper;
@@ -105,7 +126,7 @@ public class HelperJav {
         OpenHelperManager.releaseHelper();
         dbHelper.close();
         dbHelper = null;
-    }*/
+    }
 
     public static Gson getGson() {
         checkPermission();
@@ -114,7 +135,7 @@ public class HelperJav {
         var0.registerTypeAdapter(Date.class, new JsonDeserializer<Date>() {
             public Date deserialize(JsonElement var1, Type var2, JsonDeserializationContext var3) throws JsonParseException {
                 try {
-                    return (new SimpleDateFormat(HelperJav.getConfig().getApiDateFormat())).parse(var1.getAsJsonPrimitive().getAsString());
+                    return (new SimpleDateFormat(Helper.getConfig().getApiDateFormat())).parse(var1.getAsJsonPrimitive().getAsString());
                 } catch (ParseException var7) {
                     try {
                         return new Date(var1.getAsJsonPrimitive().getAsLong() * 1000L);
@@ -152,7 +173,7 @@ public class HelperJav {
         var0.registerTypeAdapter(Date.class, new JsonDeserializer<Date>() {
             public Date deserialize(JsonElement var1, Type var2, JsonDeserializationContext var3) throws JsonParseException {
                 try {
-                    return (new SimpleDateFormat(HelperJav.getConfig().getApiDateFormat())).parse(var1.getAsJsonPrimitive().getAsString());
+                    return (new SimpleDateFormat(Helper.getConfig().getApiDateFormat())).parse(var1.getAsJsonPrimitive().getAsString());
                 } catch (ParseException var5) {
                     return null;
                 }
@@ -318,9 +339,9 @@ public class HelperJav {
         return var3;
     }
 
-    /*public static void shakeView(View var0) {
-        YoYo.with(Techniques.Shake).duration((long)getConfig().getDefaultAnimationDuration()).playOn(var0);
-    }*/
+    public static void shakeView(View var0) {
+        //YoYo.with(Techniques.Shake).duration((long)getConfig().getDefaultAnimationDuration()).playOn(var0);
+    }
 
     public static void toast(Context var0, String var1) {
         checkPermission();
@@ -371,8 +392,8 @@ public class HelperJav {
         if (getConfig().getDefaultFragmentContainerResId() != -1) {
             var0.beginTransaction().replace(getConfig().getDefaultFragmentContainerResId(), var1).addToBackStack("main").commit();
         } else {
-            log(HelperJav.class.getSimpleName() + ".addFragment", "Fragment Container Res ID Not found. Please implemented Config.getDefaultFragmentContainerResId() to use this function");
-            throw new RuntimeException(HelperJav.class.getSimpleName() + ".addFragment | Fragment Container Res ID Not found. Please implemented Config.getDefaultFragmentContainerResId() to use this function");
+            log(Helper.class.getSimpleName() + ".addFragment", "Fragment Container Res ID Not found. Please implemented Config.getDefaultFragmentContainerResId() to use this function");
+            throw new RuntimeException(Helper.class.getSimpleName() + ".addFragment | Fragment Container Res ID Not found. Please implemented Config.getDefaultFragmentContainerResId() to use this function");
         }
     }
 
@@ -385,8 +406,8 @@ public class HelperJav {
         if (getConfig().getDefaultFragmentContainerResId() != -1) {
             var0.beginTransaction().replace(getConfig().getDefaultFragmentContainerResId(), var1).commit();
         } else {
-            log(HelperJav.class.getSimpleName() + ".changeFragment", "Fragment Container Res ID Not found. Please implemented Config.getDefaultFragmentContainerResId() to use this function");
-            throw new RuntimeException(HelperJav.class.getSimpleName() + ".addFragment | Fragment Container Res ID Not found. Please implemented Config.getDefaultFragmentContainerResId() to use this function");
+            log(Helper.class.getSimpleName() + ".changeFragment", "Fragment Container Res ID Not found. Please implemented Config.getDefaultFragmentContainerResId() to use this function");
+            throw new RuntimeException(Helper.class.getSimpleName() + ".addFragment | Fragment Container Res ID Not found. Please implemented Config.getDefaultFragmentContainerResId() to use this function");
         }
     }
 
@@ -474,20 +495,29 @@ public class HelperJav {
         }
     }
 
-    /*public static boolean checkPermission(final Context var0, String var1, boolean var2) {
+    public static boolean checkPermission(final Context var0, String var1, boolean var2) {
         if (checkPermission(var0, var1)) {
             return true;
         } else {
             try {
                 if (var2) {
-                    (new CustomConfirmationDialog(var0, string.dialog_request_permission_title, String.format(var0.getString(string.dialog_request_permission_content), var1), string.dialog_request_permission_positive_text, string.dialog_request_permission_negative_text, new ButtonCallback() {
-                        public void onNegative(MaterialDialog var1) {
-                            super.onPositive(var1);
-                            Intent var2 = new Intent("android.intent.action.VIEW");
-                            var2.setData(Uri.parse(Helper.getConfig().getPermissionDetailsUrl()));
-                            var0.startActivity(var2);
-                        }
-                    })).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(var0);
+                    builder.setMessage(var1)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // FIRE ZE MISSILES!
+                                }
+                            })
+                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // User cancelled the dialog
+                                    Intent var2 = new Intent("android.intent.action.VIEW");
+                                    var2.setData(Uri.parse(Helper.getConfig().getPermissionDetailsUrl()));
+                                    var0.startActivity(var2);
+                                }
+                            });
+                    // Create the AlertDialog object and return it
+                    builder.create();
                 }
             } catch (Exception var4) {
                 var4.printStackTrace();
@@ -495,7 +525,7 @@ public class HelperJav {
 
             return false;
         }
-    }*/
+    }
 
     public static void hideSoftKeyboard(Activity var0) {
         try {
@@ -508,10 +538,9 @@ public class HelperJav {
     }
 
     static {
-        a = CustomConfig.INSTANCE.getPACKAGE_NAMES();
         b = null;
         c = null;
         d = false;
-        //dbHelper = null;
+        dbHelper = null;
     }
 }
