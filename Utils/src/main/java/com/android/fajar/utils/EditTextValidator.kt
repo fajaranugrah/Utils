@@ -1,18 +1,15 @@
 package com.android.fajar.utils
 
 import android.app.AlertDialog
-import com.android.fajar.utils.EditTextValidator.EditTextSet
-import com.android.fajar.utils.EditTextValidator
 import android.widget.EditText
 import android.util.Patterns
-import com.android.fajar.utils.EditTextValidator.EditTextSet.ActionType
 import kotlin.jvm.JvmOverloads
 import android.content.DialogInterface
 import androidx.annotation.StringRes
 import java.lang.Exception
 import java.lang.NullPointerException
 
-object EditTextValidator {
+open class EditTextValidator {
     fun checkAll(var0: Array<EditTextSet>): Boolean {
         Helper.checkPermission()
         return checkAll(var0, true)
