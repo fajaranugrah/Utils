@@ -10,12 +10,12 @@ import java.lang.Exception
 import java.lang.NullPointerException
 
 open class EditTextValidator {
-    fun checkAll(var0: Array<EditTextSet>): Boolean {
+    open fun checkAll(var0: Array<EditTextSet>): Boolean {
         Helper.checkPermission()
         return checkAll(var0, true)
     }
 
-    fun checkAll(var0: Array<EditTextSet>, var1: Boolean): Boolean {
+    open fun checkAll(var0: Array<EditTextSet>, var1: Boolean): Boolean {
         Helper.checkPermission()
         var var2 = true
         val var3 = var0
@@ -32,12 +32,12 @@ open class EditTextValidator {
         return var2
     }
 
-    fun checkAll(var0: List<EditTextSet?>): Boolean {
+    open fun checkAll(var0: List<EditTextSet?>): Boolean {
         Helper.checkPermission()
         return checkAll(var0, true)
     }
 
-    fun checkAll(var0: List<EditTextSet?>, var1: Boolean): Boolean {
+    open fun checkAll(var0: List<EditTextSet?>, var1: Boolean): Boolean {
         Helper.checkPermission()
         var var2 = true
         val var3: Iterator<*> = var0.iterator()
