@@ -540,7 +540,8 @@ public class Helper {
     static {
         b = null;
         c = null;
-        d = false;
+        Log.v("checkPermission", d+"");
+        d = (d) ? true : false;
         dbHelper = null;
     }
 }
