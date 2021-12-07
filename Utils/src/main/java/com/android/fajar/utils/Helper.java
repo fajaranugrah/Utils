@@ -211,7 +211,8 @@ public class Helper {
             var6.printStackTrace();
         }
 
-        var3.addConverterFactory(new NullOnEmptyConverterFactory()).addConverterFactory(GsonConverterFactory.create(getGson()));
+        var3.addConverterFactory(LenientGsonConverterFactory.create(getGson()));
+        //var3.addConverterFactory(new NullOnEmptyConverterFactory()).addConverterFactory(GsonConverterFactory.create(getGson()));
         Retrofit var7 = var3.build();
         return var7.create(var1);
     }
