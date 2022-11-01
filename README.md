@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/fajaranugrah/utils.svg)](https://jitpack.io/#fajaranugrah/utils)
+
 # Utils
 
 add this one your application
